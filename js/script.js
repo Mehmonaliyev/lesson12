@@ -1,4 +1,4 @@
-const nuberOfSeries = prompt("Nechta serial ko'rdingiz?", "");
+const nuberOfSeries = +prompt("Nechta serial ko'rdingiz?", "");
 
 const seriesDB = {
    count: nuberOfSeries,
@@ -6,7 +6,7 @@ const seriesDB = {
    actors: {},
    genres: [],
    private: false,
-}
+};
 
 
 
@@ -14,7 +14,20 @@ const seriesDB = {
       const a = prompt("oxirgi ko'rgajn serialingizni kiriting", '');
       const  b = prompt("Necha baxo berasiz");
 
-      seriesDB.series[a] = b;
+      if (a != null && b != null && a != "" && b != "" ) {
+         seriesDB.series[a] = b;
+      }else{
+         i--;
+      }
+      
+
+      if (seriesDB.count < 5) {
+         console.log("Kam serial ko'rarkansiz");
+      } else if(seriesDB.count > 5 && seriesDB <10){
+         console.log("Siz klassik tomoshabin ekansiz");
+      }else if(seriesDB.count > 10){
+         console.log("siz serialchi zvezda ekansiz");
+      }
    }
 
 
